@@ -32,7 +32,6 @@ CACHES = {
     'default': env.cache(default='locmemcache://'),
 }
 
-
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -51,27 +50,27 @@ LANGUAGE_CODE = 'en-gb'
 # Taken from Django's default setting for LANGUAGES
 gettext_noop = lambda s: s
 LANGUAGES = (
-    ('ar', gettext_noop('Arabic')),
-    ('ca', gettext_noop('Catalan')),
-    ('cs', gettext_noop('Czech')),
-    ('da', gettext_noop('Danish')),
-    ('de', gettext_noop('German')),
+    # ('ar', gettext_noop('Arabic')),
+    # ('ca', gettext_noop('Catalan')),
+    # ('cs', gettext_noop('Czech')),
+    # ('da', gettext_noop('Danish')),
+    # ('de', gettext_noop('German')),
     ('en-gb', gettext_noop('British English')),
-    ('el', gettext_noop('Greek')),
-    ('es', gettext_noop('Spanish')),
-    ('fi', gettext_noop('Finnish')),
+    # ('el', gettext_noop('Greek')),
+    # ('es', gettext_noop('Spanish')),
+    # ('fi', gettext_noop('Finnish')),
     ('fr', gettext_noop('French')),
-    ('it', gettext_noop('Italian')),
-    ('ko', gettext_noop('Korean')),
-    ('nl', gettext_noop('Dutch')),
-    ('pl', gettext_noop('Polish')),
-    ('pt', gettext_noop('Portuguese')),
-    ('pt-br', gettext_noop('Brazilian Portuguese')),
-    ('ro', gettext_noop('Romanian')),
-    ('ru', gettext_noop('Russian')),
-    ('sk', gettext_noop('Slovak')),
-    ('uk', gettext_noop('Ukrainian')),
-    ('zh-cn', gettext_noop('Simplified Chinese')),
+    # ('it', gettext_noop('Italian')),
+    # ('ko', gettext_noop('Korean')),
+    # ('nl', gettext_noop('Dutch')),
+    # ('pl', gettext_noop('Polish')),
+    # ('pt', gettext_noop('Portuguese')),
+    # ('pt-br', gettext_noop('Brazilian Portuguese')),
+    # ('ro', gettext_noop('Romanian')),
+    # ('ru', gettext_noop('Russian')),
+    # ('sk', gettext_noop('Slovak')),
+    # ('uk', gettext_noop('Ukrainian')),
+    # ('zh-cn', gettext_noop('Simplified Chinese')),
 )
 
 SITE_ID = 1
@@ -166,7 +165,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'urls'
 
-
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.
@@ -247,7 +245,6 @@ LOGGING = {
         },
     }
 }
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -333,6 +330,7 @@ APPEND_SLASH = True
 # ====================
 
 from django.contrib.messages import constants as messages
+
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
@@ -359,7 +357,8 @@ HAYSTACK_CONNECTIONS = {
 # Debug Toolbar
 # =============
 
-INTERNAL_IPS = ['127.0.0.1', '::1']
+# INTERNAL_IPS = ['127.0.0.1', '::1']
+INTERNAL_IPS = []  # empty list -> Django Debug Toolbar is disabled
 
 # ==============
 # Oscar settings
@@ -370,11 +369,11 @@ from oscar.defaults import *
 # Meta
 # ====
 
-OSCAR_SHOP_TAGLINE = 'Sandbox'
 
-OSCAR_RECENTLY_VIEWED_PRODUCTS = 20
 OSCAR_ALLOW_ANON_CHECKOUT = True
 
+OSCAR_SHOP_NAME = 'Simple commerce'
+OSCAR_DEFAULT_CURRENCY = 'EUR'
 
 # Order processing
 # ================
@@ -410,7 +409,6 @@ THUMBNAIL_KVSTORE = env(
     'THUMBNAIL_KVSTORE',
     default='sorl.thumbnail.kvstores.cached_db_kvstore.KVStore')
 THUMBNAIL_REDIS_URL = env('THUMBNAIL_REDIS_URL', default=None)
-
 
 # Django 1.6 has switched to JSON serializing for security reasons, but it does not
 # serialize Models. We should resolve this by extending the
