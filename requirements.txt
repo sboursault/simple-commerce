@@ -28,3 +28,6 @@ ipython>=7.12,<9
 
 # Country data
 pycountry
+
+# Oscar extensions
+django-oscar-api==3.2.0

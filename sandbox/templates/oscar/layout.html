@@ -7,8 +7,10 @@
     <header class="header container">
         <div class="page_inner pt-4 pb-3 bg-light">
             <div class="row justify-content-between">
-                {% include "oscar/partials/brand.html" %}
-                <div class="col-sm-4">
+                <div class="col-sm-6">
+                    {% include "oscar/partials/brand.html" %}
+                </div>
+                <div class="col-sm-6">
                     <nav id="top_page" class="navbar navbar-expand-lg navbar-light bg-light accounts">
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".account-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -21,7 +23,7 @@
                                     {% include "oscar/partials/nav_accounts_dropdown.html" %}
                                 </ul>
 
-                                <ul class="navbar-nav ml-md-auto d-md-flex mr-2">
+                                <ul class="navbar-nav d-md-flex mx-2">
                                     {# Mini-basket wrapped in a block so some templates can now display it #}
                                     {% block mini_basket %}{% include "oscar/partials/mini_basket.html" %}{% endblock %}
                                 </ul>

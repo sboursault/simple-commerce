@@ -5,7 +5,7 @@
     <li class="nav-item dropdown">
 
       <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-          <i class="far fa-user mr-2"></i> {{ user.name |default:user.username }}
+          <i class="far fa-user mr-2"></i> {{ user.name | default:user.email }}
       </a>
       <div class="dropdown-menu" style="min-width:12rem;">
 
