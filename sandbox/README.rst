@@ -16,3 +16,10 @@ It does have a few customisations:
   which should automatically allow the profile fields to be edited.
 
 It is deployed automatically to: https://latest.oscarcommerce.com
+
+
+
+username: superuser
+email: superuser@example.com
+password: testing
+

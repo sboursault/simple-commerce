@@ -329,6 +329,8 @@ AUTH_PASSWORD_VALIDATORS = [
 LOGIN_REDIRECT_URL = '/'
 APPEND_SLASH = True
 
+OSCARAPI_EXPOSE_USER_DETAILS = True
+
 # ====================
 # Messages contrib app
 # ====================
