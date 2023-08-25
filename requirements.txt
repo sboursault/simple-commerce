@@ -1,3 +1,6 @@
+# downgrade pillow version to fix "AttributeError: module 'PIL.Image' has no attribute 'ANTIALIAS'" at startup
+Pillow==9.5.0
+
 # These requirements are only necessary when developing on Oscar.
 
 # development
