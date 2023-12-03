@@ -162,6 +162,9 @@ MIDDLEWARE = [
 
     # Ensure a valid basket is added to the request instance for every request
     'oscar.apps.basket.middleware.BasketMiddleware',
+
+    # Protect the usage of your API with an authentication token
+    #'oscarapi.middleware.ApiGatewayMiddleWare',
 ]
 
 ROOT_URLCONF = 'urls'
@@ -330,7 +333,9 @@ AUTH_PASSWORD_VALIDATORS = [
 LOGIN_REDIRECT_URL = '/'
 APPEND_SLASH = True
 
+# Oscar api
 OSCARAPI_EXPOSE_USER_DETAILS = True
+OSCARAPI_BLOCK_ADMIN_API_ACCESS = False
 
 # ====================
 # Messages contrib app
