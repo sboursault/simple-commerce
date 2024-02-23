@@ -1,3 +1,6 @@
+#
+# Build stage
+#
 FROM python:3.8
 ENV PYTHONUNBUFFERED 1
 
@@ -24,9 +27,15 @@ RUN make build_sandbox \
 RUN cp --remove-destination /app/src/oscar/static/oscar/img/image_not_found.jpg /app/sandbox/public/media/
 
 
+#
+# Package stage
+#
 FROM python:3.8-slim
 COPY --from=0 /usr/local/lib/python3.8/site-packages*/ /usr/local/lib/python3.8/site-packages/
 COPY --from=0 /app/ /app/
 WORKDIR /app
 CMD ["sandbox/manage.py", "runserver", "0.0.0.0:8000"]
 # `0.0.0.0:8000` is required when running in docker
+
+# consider using this repo fore node js
+# https://deb.nodesource.com/setup_18.x — Node.js 18 LTS "Hydrogen" (recommended)
