@@ -142,6 +142,12 @@ TEMPLATES = [
     }
 ]
 
+if os.environ.get('CSRF_ENABLED', "true").lower() != 'false':
+    csrf_middleware = 'django.middleware.csrf.CsrfViewMiddleware'
+else:
+    print('Warning: Csrf protection is disabled')
+    csrf_middleware = 'oscar.apps.simplecommerce.middle.DisableCSRFMiddleware'
+
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 
@@ -149,7 +155,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    csrf_middleware,
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -164,7 +170,7 @@ MIDDLEWARE = [
     'oscar.apps.basket.middleware.BasketMiddleware',
 
     # Protect the usage of your API with an authentication token
-    #'oscarapi.middleware.ApiGatewayMiddleWare',
+    # 'oscarapi.middleware.ApiGatewayMiddleWare',
 ]
 
 ROOT_URLCONF = 'urls'
@@ -309,6 +315,7 @@ INSTALLED_APPS = [
     # extra dependencies
     'rest_framework',
     'oscarapi',
+    'oscar.apps.simplecommerce',
 ]
 
 # Add Oscar's custom auth backend so users can sign in using their email

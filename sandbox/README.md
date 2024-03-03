@@ -13,12 +13,13 @@
 
 ### Using the docker image
 
-	docker run -p 8000:8000 sboursault/simple-commerce:1.1
+	docker run -p 8000:8000 sboursault/simple-commerce:1.2 \
+        -e CSRF_ENABLED='true'
 
 ### Build and push the docker image
 
-    docker build -t sboursault/simple-commerce:1.0.1 --rm=true --no-cache=true .
-    docker push sboursault/simple-commerce:1.1
+    docker build -t sboursault/simple-commerce:1.2 --rm=true --no-cache=true .
+    docker push sboursault/simple-commerce:1.2
 
-Now the image url is 'docker.io/sboursault/simple-commerce:1.1'.
+Now the image url is 'docker.io/sboursault/simple-commerce:1.2'.
     
