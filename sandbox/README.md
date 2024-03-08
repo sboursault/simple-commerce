@@ -5,7 +5,7 @@
 ### From the source code
     
     virtualenv --python=python3 venv  
-    source ./oscar/bin/activate
+    source ./venv/bin/activate
     make sandbox
     sandbox/manage.py runserver
 
