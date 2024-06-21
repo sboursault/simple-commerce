@@ -343,6 +343,7 @@ APPEND_SLASH = True
 # Oscar api
 OSCARAPI_EXPOSE_USER_DETAILS = True
 OSCARAPI_BLOCK_ADMIN_API_ACCESS = False
+OSCARAPI_ENABLE_REGISTRATION = True
 
 # ====================
 # Messages contrib app

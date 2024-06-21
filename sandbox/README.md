@@ -13,8 +13,9 @@
 
 ### Using the docker image
 
-	docker run -p 8000:8000 sboursault/simple-commerce:1.2 \
-        -e CSRF_ENABLED='true'
+	docker run -p 8000:8000 \
+        -e CSRF_ENABLED='true' \
+        sboursault/simple-commerce:1.2
 
 ### Build and push the docker image
 
