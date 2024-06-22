@@ -24,3 +24,8 @@
 
 Now the image url is 'docker.io/sboursault/simple-commerce:1.2'.
     
+### Admin user
+
+username: superuser
+email: superuser@example.com
+password: testing

@@ -1,3 +1,6 @@
+
+Django==3.2.24
+
 # downgrade pillow version to fix "AttributeError: module 'PIL.Image' has no attribute 'ANTIALIAS'" at startup
 Pillow==9.5.0
 
@@ -5,14 +8,14 @@ Pillow==9.5.0
 
 # development
 Werkzeug>=1.0,<2.1
-django-debug-toolbar>=2.2,<3.6
-django-extensions>=2.2,<3.3
+django-debug-toolbar==3.5.0
+django-extensions==3.2.3
 psycopg2-binary>=2.8,<2.10
 
 # Sandbox
 Whoosh>=2.7,<2.8
-django-environ>=0.4,<0.10
-django-redis>=4.12,<5.3
+django-environ==0.9.0
+django-redis==5.2.0
 pysolr>=3.9,<3.10
 redis>=3.5,<4.4
 requests>=2.25,<3
