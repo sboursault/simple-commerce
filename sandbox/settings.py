@@ -45,7 +45,11 @@ TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-gb'
+if os.environ.get('DEFAULT_LANGUAGE', '').lower() == 'fr':
+    LANGUAGE_CODE = 'fr'
+else:
+    LANGUAGE_CODE = 'en-gb'
+
 
 # Includes all languages that have >50% coverage in Transifex
 # Taken from Django's default setting for LANGUAGES
@@ -142,13 +146,14 @@ TEMPLATES = [
     }
 ]
 
-if os.environ.get('CSRF_ENABLED', "true").lower() != 'false':
-    csrf_middleware = 'django.middleware.csrf.CsrfViewMiddleware'
-else:
+if os.environ.get('CSRF_ENABLED', '').lower() == 'false':
     print('Warning: Csrf protection is disabled')
     csrf_middleware = 'oscar.apps.simplecommerce.middle.DisableCSRFMiddleware'
+else:
+    csrf_middleware = 'django.middleware.csrf.CsrfViewMiddleware'
 
 MIDDLEWARE = [
+    'oscar.apps.simplecommerce.middle.ForceDefaultLanguageMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
@@ -442,8 +447,4 @@ SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', default=0)
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 
-# Try and import local settings which can be used to override any of the above.
-try:
-    from settings_local import *
-except ImportError:
-    pass
+# Try and import local settings which can be used to ove

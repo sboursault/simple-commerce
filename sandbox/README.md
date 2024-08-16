@@ -15,14 +15,15 @@
 
 	docker run -p 8000:8000 \
         -e CSRF_ENABLED='true' \
-        sboursault/simple-commerce:1.2
+        -e DEFAULT_LANGUAGE='fr' \
+        sboursault/simple-commerce:1.5
 
 ### Build and push the docker image
 
-    docker build -t sboursault/simple-commerce:1.2 --rm=true --no-cache=true .
-    docker push sboursault/simple-commerce:1.2
+    docker build -t sboursault/simple-commerce:1.5 --rm=true --no-cache=true .
+    docker push sboursault/simple-commerce:1.5
 
-Now the image url is 'docker.io/sboursault/simple-commerce:1.2'.
+Now the image url is 'docker.io/sboursault/simple-commerce:1.4'.
     
 ### Admin user
 
